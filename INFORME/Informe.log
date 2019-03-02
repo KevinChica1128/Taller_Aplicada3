@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.2)  2 MAR 2019 12:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.6960 64-bit) (preloaded format=pdflatex 2019.2.2)  2 MAR 2019 14:07
 entering extended mode
 **./Informe.tex
 (Informe.tex
@@ -501,7 +501,7 @@ Here is how much of TeX's memory you used:
  9724 multiletter control sequences out of 15000+200000
  18900 words of font info for 57 fonts, out of 3000000 for 9000
  1145 hyphenation exceptions out of 8191
- 43i,8n,40p,753b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,8n,40p,965b,376s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\KEVINSTEVEN\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/
 dpi600\ecti0900.pk> <C:\Users\KEVINSTEVEN\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
 our/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\KEVINSTEVEN\AppData\Local\MiKTeX\
@@ -521,7 +521,7 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
 amsfonts/cm/cmsy7.pfb>
-Output written on Informe.pdf (5 pages, 165717 bytes).
+Output written on Informe.pdf (5 pages, 166868 bytes).
 PDF statistics:
  324 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
