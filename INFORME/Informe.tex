@@ -1,0 +1,332 @@
+% -------------------------------------------------------------------------------------
+% Plantilla de un artículo para publicar en la Revista Colombiana de Estadística
+% *************************************************************************************
+% -------------------------------------------------------------------------------------
+% Establecer primero el idioma principal del artículo, por defecto es español; para
+% utilizar otro idioma, cambiar el comando "\documentclass{revcoles}" por el comando
+% "\documentclass[english]{revcoles}" o por "\documentclass[portuguese]{revcoles}"
+% **** --------------------------------------------------------------------------------
+\documentclass[report,oneside]{revcoles}
+\usepackage{float}
+\usepackage[latin1]{inputenc}
+\usepackage[top=2cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\labeldocument[
+university = Universidad del Valle,
+program = Programa Académico de Estadística,
+subject = Estadística Aplicada III,
+city = Cali,
+month = 3,
+year = 2019]
+
+% -------------------------------------------------------------------------------------
+% Espacio reservado para la carga de los paquetes por parte del autor
+% **** --------------------------------------------------------------------------------
+
+
+
+
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar las definiciones especiales por parte del autor
+% **** --------------------------------------------------------------------------------
+
+
+
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio utilizado para colocar las palabras que necesitan partición silábica
+% **** --------------------------------------------------------------------------------
+\hyphenation{Colombia mul-ti-va-ria-do pro-ba-bi-li-dad es-ta-d\'{i}s-ti-ca}
+% //// --------------------------------------------------------------------------------
+\begin{document}
+
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar el título del artículo
+% "maintitle = " título original del artículo
+% "secondtitle = " título del artículo traducido al idioma alterno
+% "shorttitle = " título corto (opcional) para el encabezado
+% **** --------------------------------------------------------------------------------
+\title[maintitle = {Diseño Completamente Aleatorizado},
+       %secondtitle = Template for report in a course,
+       shorttitle = Taller DCA
+]
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar el(los) autor(es) del artículo de forma individual.
+% opción "firstname = " nombres completos de cada autor
+% opción "surname = " primer apellido de cada autor
+% opción "numberinstitution = " número que identifica la institución a la que pertenece
+%         el autor, en caso de haber solo una institución el campo se elimina
+% opción "affiliation = " afiliación o cargo que desempeña el autor en la institución
+% opción "email = " dirección electrónica del autor (preferiblemente institucional)
+% **** --------------------------------------------------------------------------------
+\begin{authors}
+\author[firstname = Kevin Steven,
+        surname = García,
+        code = Código: 1533173,
+        email = kevin.chica@correounivalle.edu.co,
+]
+\author[firstname = Alejandro,
+        surname = Vargas,
+        code = Código: 1525953  ,
+        email = jose.alejandro.vargas@correounivalle.edu.co
+]
+\author[firstname = Alejandro,
+        surname = Soto,
+        code = Código: 1532457 ,
+        email = asotomurillo@gmail.com 
+]
+\end{authors}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para ingresar la información de la(s) institución(es) a la(s)
+% cual(es) pertenece(n) el(los) autor(es)
+% Usar un comando "\institute"  por cada una de las diferentes instituciones.
+% Los campos "subdivision" y "division" son opcionales
+% Los campos "institution", "city" y "country" son obligatorios
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{institutions}
+     \institute[subdivision = Departamento de Estadística,
+                division = Facultad de Ciencias,
+                institution = Universidad del Valle,
+                city = Cali,
+                country = Colombia]
+\end{institutions}
+\end{comment}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% CUERPO DEL DOCUMENTO
+% **** --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar el resumen en el idioma principal y las palabras clave
+% !!No dejar salto de línea entre el resumen y el comando \keywords{.}¡¡
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{mainabstract}
+Este documento contiene las instrucciones de presentación de los
+trabajos de cursos. Este texto está escrito utilizando \LaTeX\
+como editor según formato adjunto (archivo \emph{Template for Report.tex})
+y puede utilizarse como guía, reemplazando este contenido. Se requieren los
+archivos \emph{revcoles.cls}, \emph{references.bib} y \emph{graph\_example.eps}.%
+%
+\keywords{Formato en \LaTeX\ para documentos, carrera de Estadística}
+\end{mainabstract}
+\end{comment}
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Espacio reservado para colocar el resumen en el idioma secundario y las palabras clave
+% !!No dejar salto de línea entre el resumen y el comando \keywords{.}¡¡
+% **** --------------------------------------------------------------------------------
+\begin{comment}
+\begin{secondaryabstract}
+This document gives the instructions to prepare a \LaTeX\ version of the graduation project of undergraduate in
+Statistics to first semester of 2008. The document is written using a \LaTeX\ format (file \emph{Plantilla para trabajo
+de grado.tex}) and can be used as a guideline just replacing its contents. It is necessary to use also the files
+\emph{revcoles.cls}, \emph{references.bib} and \emph{graph\_example.eps}.
+%
+\keywords{\LaTeX\ format for documents, undergraduate in Statistics}
+\end{secondaryabstract}
+
+\end{comment}% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Título de la primera sección
+% **** --------------------------------------------------------------------------------
+
+\section{Punto 1}
+~\\Un fabricante supone que existe diferencias en el contenido de calcio en lotes de materia prima que le son suministrados por su proveedor. Actualmente hay una gran cantidad de lotes en la bodega. Cinco (5) lotes son seleccionados. Un químico realiza 5 pruebas a cada lote y obtiene los siguientes resultados:
+
+\begin{center}
+\begin{tabular}{ccccc}
+\hline 
+LOTE 1 & LOTE 2 & LOTE 3 & LOTE 4 & LOTE 5 \\ 
+\hline 
+23.46 & 23.59 & 23.51 & 23.28 & 23.29\\
+23.48 & 23.46 & 23.64 & 23.4  & 23.46\\
+23.56 & 23.42 & 23.46 & 23.37 & 23.37\\
+23.39 & 23.49 & 23.52 & 23.46 & 23.32\\
+23.4  & 23.5  & 23.49 & 23.39 & 23.38\\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{itemize}
+\item[a.]
+\begin{itemize}
+\item[-]Unidad experimental: Materia prima
+\item[-]Factor: Lote
+\item[-]Niveles: Lote 1, Lote 2, Lote 3, Lote 4 y lote 5
+\item[-]Tratamientos: Lote 1, Lote 2, Lote 3, Lote 4 y lote 5
+\item[-]Variable de respuesta: Contenido de calcio
+\end{itemize}
+
+\item[b.]
+~\\El diseño completamente aleatorizado es adecuado en esta situación, ya que se quiere analizar si existen diferencias entre los lotes de materia prima en cuanto a la concentración de calcio, es decir se investiga el efecto de un factor(lote) con a(5) niveles (o a(5) tratamientos) sobre una variable de respuesta que es contenido de calcio; además, como los lotes son de la misma materia prima y el mismo proveedor, también se podría suponer que las unidades experimentales son homogéneas y, finalmente, de una gran cantidad de lotes se seleccionaron 5 de ellos, es decir, se realizó un proceso de aleatorización en la asignación de unidades experimentales cumpliendo con las 4 características principales del DCA.
+
+\item[c.]
+~\\\textbf{Estadísticas descriptivas:}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+  & Mín & Q1 & Mediana & Media & Q3 & Máx & Des. Estándar & CV(\%)  \\ 
+\hline 
+Lote 1 & 23.39 & 23.4 & 23.46 & 23.458 & 23.48 & 23.56 & 0.068702256 & 0.29287346 \\
+Lote 2 & 23.42 & 23.46 & 23.49 & 23.492 & 23.5 & 23.59 & 0.063007936 & 0.26821018 \\
+Lote 3 & 23.46 & 23.49 & 23.51 & 23.524 & 23.52 & 23.64 & 0.068774995 & 0.29236097 \\
+Lote 4 & 23.28 & 23.37 & 23.39 & 23.38 & 23.4 & 23.46 & 0.065192024 & 0.27883672 \\
+Lote 5 & 23.29 & 23.32 & 23.37 & 23.364 & 23.38 & 23.46 & 0.06503845 & 0.27837036 \\
+\hline 
+\end{tabular} 
+\end{center}
+~\\En la tabla anterior, se podría decir a priori, que no se aprecian diferencias significativas entre los lotes en cuanto a la cantidad de calcio que presentan. Todas tienen valores muy parecidos en cada uno de los estadísticos obtenidos. Poseen casi la misma media, mediana y desviación.
+
+\pagebreak
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{FigurasUV/D1.pdf}
+\end{figure}
+~\\En ésta gráfica dado que el eje y reduce demasiado su escala, se pueden apreciar diferencias decimales, y se observa que en decimales, el lote 1, 2 y 3 son parecidos, siendo el 3 el que más calcio contiene, y los lotes 4 y 5 son casi iguales, y tienen menor calcio que los otros 3 lotes.
+
+\item[d.]
+~\\Se plantea el siguiente modelo:
+\begin{center}
+$y_{ij}=\mu+\tau_i+\varepsilon_{ij}$ \;\;\; $i=1,...,5$ \;\;\; $j=1,...,5$
+\end{center}
+~\\El cuál se construye bajo los siguientes supuestos:
+\begin{center}
+$\varepsilon_{ij}\approx N(0,\sigma^2),\;\; E[\varepsilon_{ij}]=0 \;\;\; \forall_{ij}, \;\; V[\varepsilon_{ij}]=\sigma^2, \;\; cov[\varepsilon_{ij},\varepsilon_{i'j'}]=0$
+\end{center}
+~\\Donde:
+~\\$y_{ij}=$Cantidad de calcio en la j-ésima prueba del lote i.
+~\\$\mu=$Media general de contenido de calcio por lote sin tener en cuenta el tipo de lote.
+~\\$\tau_i=$Efecto del i-ésimo lote sobre el contenido de calcio.
+~\\$\varepsilon_{ij}=$Error aleatorio debido al i-ésimo lote en la j-ésima réplica.
+\item[e.]
+~\\Planteamos la siguiente hipótesis:
+\begin{center}
+~\\$H_0:$No hay un efecto del factor de tratamiento(lote) sobre la cantidad de calcio.
+~\\$H_1:$Al menos uno de los tratamientos(lote) tiene un efecto significativo sobre la cantidad de calcio.
+\end{center}
+\item[f.]
+~\\Antes de realizar la ANOVA e interpretar los resultados, se comprobarán los supuestos del modelo para saber si las interpretaciones que obtengamos si van a ser correctas.
+~\\Sobre los errrores se tienen los siguientes supuestos:
+$$\varepsilon_{ij}\approx N(0,\sigma^2)  \rightarrow \;\; Normalidad$$
+$$ E[\varepsilon_{ij}]=0 \;\;\; \forall_{ij} \rightarrow \;\; Correcta\; especificacion$$
+$$V[\varepsilon_{ij}]=\sigma^2 \;\;\; \forall_{ij}\rightarrow \;\; Homocedasticidad$$ 
+$$cov[\varepsilon_{ij},\varepsilon_{i'j'}]=0 \;\;\; \forall_{i\neq i'}  \;\; \wedge \;\;\; \forall_{j\neq j'} \rightarrow \;\; Independencia$$
+
+\begin{itemize}
+\item[-]Normalidad: Para probar el supuesto de normalidad, se realizarán dos pruebas gráficas (histograma y QQ-plot) y una prueba estadística(Shapiro Wilk).
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{FigurasUV/N1.pdf}
+\end{figure}
+
+\item[*]Test Shapiro-Wilk:$$H_0:Los\; datos\; provienen\; de\; una\; distribucion\; normal$$
+$$H_a:Los\; datos\; no\; provienen\; de\; una\; distribucion\; normal$$
+$$W = 0.93593, p-value = 0.1192$$
+
+~\\Como el p-valor=0.1192 es superior a nuestro nivel de significancia $\alpha=0.05$, no se rechaza la hipótesis nula, y concluimos que no hay evidencia estadística suficiente para decir que los datos no provienen de una distribución normal, lo que nos indica que este supuesto de normalidad en los errores no se incumple.
+\item[-]Correcta Especificación:Sabemos que este supuesto siempre se cumple, ya que el método o la construcción del modelo asegura que la esperanza de los residuales sea igual a cero, sin embargo, se realizó una prueba t para comprobarlo.
+
+\item[*]T-test:$$H_0: La\; verdadera\; media\; es\; igual\; a\; 0 $$
+$$H_a:La\; verdadera\; media\; no\; es\; igual\; a\; 0$$
+$$t = 1.9109e-16, df = 24, p-value = 1$$
+~\\Como el p-valor=1 es superior a nuestro nivel de significancia $\alpha=0.05$, no se rechaza la hipótesis nula, y se verifica lo dicho anteriormente. 
+
+
+\item[-]Homocedasticidad:Para analizar la homocedasticidad se realizó una prueba gráfica(valores ajustados vs residuos) y una prueba estadísticas(Test de Barlett)
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{FigurasUV/H1.pdf}
+\end{figure}
+
+\item[*]Prueba de Barlett:$$H_0:Las\;varianzas\;de\;todos\;los\;grupos\;son\;iguales$$
+$$H_a:Al\;menos\;una\;de las\; varianzas\;es\;diferente$$
+$$Bartlett's \; K-squared = 0.042264, df = 4, p-value = 0.9998$$
+
+~\\Como el p-valor=0.9998 es superior a nuestro nivel de significancia $\alpha=0.05$, no se rechaza la hipótesis nula, y concluimos que no hay evidencia estadística suficiente para decir que al menos entre dos grupos la varianza es diferente, lo que nos indica que este supuesto de homocedasticidad en los errores no se incumple.
+
+
+\item[-]Independencia:Para probar el supuesto de independencia en los errores, no se debe realizar un correlograma o una prueba sobre la autocorrelación(prueba de Durbin-Watson) ya que estas dependen del orden en el cuál se obtuvieron los datos, y esa información no se tiene, por lo tanto, solo se realizará una prueba de rachas.
+
+\item[*]Test de rachas: $$H_0:La \; muestra\; es\; aleatoria\; (las \; observaciones \;son \; independientes)$$
+$$H_a:La \; muestra\; no \;es\; aleatoria\; (las \; observaciones \; no\;son \; independientes)$$
+$$Standard \; Normal = 0.62212, p-value = 0.5339$$
+~\\Como el p valor=0.62212 es mayor que nuestro nivel de significancia $\alpha=0.05$, no rechazamos la hipótesis nula y concluimos que no hay evidencia estadística suficiente para decir que los residuales no están distribuidos de manera aleatoria, en otras palabras, no podemos decir que no son independientes. Teniendo en cuenta esto, podemos decir que este supuesto de independencia en los errores parece no incumplirse.
+\end{itemize}
+~\\Ya que según las pruebas aplicadas, ninguno de los supuestos se incumple, procedemos a realizar e interpretar la ANOVA:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ &Df&  Sum Sq& Mean Sq &F value & Pr(>F)\\   
+\hline 
+Lote      &   4& 0.09698& 0.02424&   5.535& 0.00363**\\ 
+Residuals &  20& 0.08760& 0.00438&  &  \\        
+\hline 
+\end{tabular} 
+\end{center} 
+~\\Podemos ver que el p valor=0.00363 es inferior a nuestro nivel de significancia $\alpha=0.05$, por lo cual se rechaza $H_0$ planteada en el item e, y concluimos que al menos uno de los tratamientos(lote) tiene un efecto significativo sobre la cantidad de calcio.
+
+\item[g.]Se realizará la prueba postanova de Fisher, ya que queremos maximizar la probabilidad de encontrar diferencias significativas, y ésta, al ser no conservadora, tiende a rechazar más hipótesis nulas.Los resultados resumidos para esta prueba son:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+     &  Calcio& groups\\
+\hline
+Lote 3& 23.524&      a\\
+Lote 2& 23.492&      a\\
+Lote 1& 23.458&     ab\\
+Lote 4& 23.380&     bc\\
+Lote 5& 23.364&      c\\
+\hline
+\end{tabular}
+\end{center}
+~\\Los tratamientos con la misma letra no son significativamente diferentes.
+
+\item[h.]
+\item[i.]Cuando no se cumple el supuesto de normalidad se realiza la prueba no Paramétrica de Kruskal-Wallis para darnos cuenta si la cantidad de calcio difiere en los diferentes lotes. Los resultados para esta prueba son:
+\item[*]Prueba de Kruskal-Wallis:$$H_0: Las\; 5\; medianas\; son\; todas\; iguales\;$$
+$$H1: Al\; menos\; una\; de\; las\; medianas\; es\; diferente\; $$
+$$Kruskal-Wallis\; chi-squared = 14.441, df = 4, p-value = 0.006013$$
+~\\Dado que el p valor=0.006013 es menor que nuestro nivel de significancia $\alpha=0.05$,se rechaza $H_0$ y concluimos que hay evidencia estadística suficiente para decir que los lotes presentan diferencias en la cantidad de calcio en cuanto a sus medianas.
+~\\Se puede observar que cuando realizamos la ANOVA, bajo el supuesto de normalidad, la hipótesis de que los efectos de los lotes de materia prima en la cantidad de calcio es la misma, también se rechazaba a un nivel de significancia $\alpha=0.05$. Ahora para la comparación dado que la variable de respuesta tiene empates, se tienen los siguientes resultados:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+     &Lote 1 &Lote 2& Lote 3& Lote 4\\
+\hline
+Lote 2& 0.973&  -   &   -   &   -   \\  
+Lote 3& 0.805&  0.989&  -   &   -   \\  
+Lote 4& 0.696&  0.303&  0.106&  -   \\  
+Lote 5& 0.523&  0.180&  0.052&  0.999\\ 
+\hline
+\end{tabular}
+\end{center}
+~\\Aquí podemos ver una contradicción entre la prueba de Kruskal-Wallis y las comparaciones por pares usando Nemenyi-test con Chi-cuadrado, ya que la primera nos dice que si existen diferencias entre las cantidades de calcio de los lotes, pero cuando hacemos las comparaciones entre todos los lotes vemos que todos los p valores son superiores a nuestro nivel de significancia $\alpha=0.05$, la cuál no nos detecta diferencias entre los pares de lotes.
+
+\end{itemize}
+
+% //// --------------------------------------------------------------------------------
+% -------------------------------------------------------------------------------------
+% Fin del cuerpo del documento
+% **** --------------------------------------------------------------------------------
+% **** --------------------------------------------------------------------------------
+% Espacio para colocar el nombre del archivo *.bib (sin la extensión .bib) que contiene
+% las referencias bibliográficas del artículo utilizando el estilo bibliográfico BibTeX
+% "\referencias{.}"
+% **** --------------------------------------------------------------------------------
+\bibliography{references}
+% //// --------------------------------------------------------------------------------
+% //// --------------------------------------------------------------------------------
+    \appendix% !no modificar esta línea¡
+% -------------------------------------------------------------------------------------
+% Espacio para ubicar los apéndices: tablas y gráficas
+% **** --------------------------------------------------------------------------------
+
+
+% -------------------------------------------------------------------------------------
+% Fin del artículo
+% **** --------------------------------------------------------------------------------
+\end{document}
