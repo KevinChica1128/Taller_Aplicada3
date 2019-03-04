@@ -184,7 +184,7 @@ Lote 5 & 23.29 & 23.32 & 23.37 & 23.364 & 23.38 & 23.46 & 0.06503845 & 0.2783703
 \pagebreak
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.4]{FigurasUV/D1.pdf}
+  \includegraphics[scale=0.35]{FigurasUV/D1.pdf}
 \end{figure}
 ~\\En ésta gráfica dado que el eje y reduce demasiado su escala, se pueden apreciar diferencias decimales, y se observa que en decimales, el lote 1, 2 y 3 son parecidos, siendo el 3 el que más calcio contiene, y los lotes 4 y 5 son casi iguales, y tienen menor calcio que los otros 3 lotes.
 
@@ -220,9 +220,10 @@ $$cov[\varepsilon_{ij},\varepsilon_{i'j'}]=0 \;\;\; \forall_{i\neq i'}  \;\; \we
 \item[-]Normalidad: Para probar el supuesto de normalidad, se realizarán dos pruebas gráficas (histograma y QQ-plot) y una prueba estadística(Shapiro Wilk).
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.4]{FigurasUV/N1.pdf}
+  \includegraphics[scale=0.35]{FigurasUV/N1.pdf}
 \end{figure}
-
+~\\En estas gráficas se podría pensar que el supuesto no se cumple, ya que la cola derecha de la distribución se sale de los intervalos de confianza de la recta de cuantiles teórica de la distribución normal. Sin embargo, las pruebas gráficas no son muy convincentes ya que su interpretación puede ser distinta de una persona a otra y depende mucho de la experiencia del investigador. Por ello se acude a la prueba formal.
+ 
 \item[*]Test Shapiro-Wilk:$$H_0:Los\; datos\; provienen\; de\; una\; distribucion\; normal$$
 $$H_a:Los\; datos\; no\; provienen\; de\; una\; distribucion\; normal$$
 $$W = 0.93593, p-value = 0.1192$$
@@ -239,8 +240,9 @@ $$t = 1.9109e-16, df = 24, p-value = 1$$
 \item[-]Homocedasticidad:Para analizar la homocedasticidad se realizó una prueba gráfica(valores ajustados vs residuos) y una prueba estadísticas(Test de Barlett)
 \begin{figure}[h!]
   \centering
-  \includegraphics[scale=0.4]{FigurasUV/H1.pdf}
+  \includegraphics[scale=0.35]{FigurasUV/H1.pdf}
 \end{figure}
+~\\En esta gráfica se confirma o dicho en las estadísticas descriptivas, las varianzas entre los residuos de cada factor son muy parecidas. Claramente se ve que se cumple el supuesto de homocedasticidad, sin embargo se realiza la prueba formal, la cual se espera que tenga un p valor bastante alto, por la evidencia que se tiene.
 
 \item[*]Prueba de Barlett:$$H_0:Las\;varianzas\;de\;todos\;los\;grupos\;son\;iguales$$
 $$H_a:Al\;menos\;una\;de las\; varianzas\;es\;diferente$$
@@ -310,6 +312,211 @@ Lote 5& 0.523&  0.180&  0.052&  0.999\\
 \end{itemize}
 
 \section{Punto 2}
+~\\En una planta industrial se desea determinar si diferentes trabajadores con el mismo nivel de habilidad
+tienen algún efecto sobre el número de unidades que se espera que produzcan durante un periodo fijo.
+Se lleva a cabo un experimento en el que se seleccionan al azar 5 trabajadores y se observa el número
+de unidades que cada uno produce en seis periodos con la misma duración, produciéndose los
+siguientes resultados.
+
+\begin{center}
+\begin{tabular}{ccccc}
+\hline 
+&&TRABAJADOR&\\
+\hline 
+ 1 &  2 &  3 &  4 &  5 \\ 
+\hline 
+45& 52& 39& 57& 48 \\
+47& 55& 37& 49& 44 \\
+43& 58& 46& 52& 55 \\
+48& 49& 45& 50& 53 \\
+50& 47& 42& 48& 49 \\
+44& 57& 41& 55& 52\\
+\hline 
+\end{tabular} 
+\end{center}
+
+\begin{itemize}
+\item[a.]
+\begin{itemize}
+\item[-]Unidad experimental: Trabajadores
+\item[-]Factor: Trabajador
+\item[-]Niveles: Trabajador 1, Trabajador 2, Trabajador 3, Trabajador 4 y Trabajador 5
+\item[-]Tratamientos: Trabajador 1, Trabajador 2, Trabajador 3, Trabajador 4 y Trabajador 5
+\item[-]Variable de respuesta: Unidades por periodo
+\end{itemize}
+
+\item[b.]
+~\\El diseño completamente aleatorizado es adecuado en esta situación, ya que para comenzar vemos que se obtuvieron 5 trabajadores completamente aleatorios, todos con igual probabilidad de salir lo que nos garantiza la homogeneidad de las unidades experimentales,y como se investiga el hecho de que trabajadores con habilidades iguales tengan diferencias en la cantidad de unidades que producen cada uno podemos decir que tenemos las características necesarias para un DCA.
+
+\item[c.]
+~\\\textbf{Estadísticas descriptivas:}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+  & Mín & Q1 & Mediana & Media & Q3 & Máx & Des. Estándar & CV(\%)  \\ 
+\hline 
+Trabajador 1 & 43 & 44.25 & 46 & 46.17 & 47.75 & 50 & 1.832947 & 3.970283 \\
+Trabajador 2 & 47 & 49.75 & 53.50 & 53 & 56.50 & 58 & 3.074437 & 5.800824 \\
+Trabajador 3 & 37 & 39.50 & 41.50 & 41.67 & 44.25 & 46 & 2.392224 & 5.741338 \\
+Trabajador 4 & 48 & 49.25 & 51 & 51.83 & 54.25 & 57 & 2.461770 & 4.749396 \\
+Trabajador 5 & 44 & 48.25 & 50.50 & 50.17 & 52.75 & 55 & 2.757449 & 5.496576 \\
+\hline 
+\end{tabular} 
+\end{center}
+~\\En la tabla anterior, se puede apreciar a priori que hay trabajadores los cuales producen mas unidades que otros en cuanto a la media y mediana, por ejemplo los trabajadores 2,4 y 5, también se observan diferencias importantes en el mínimo y máximo de la cantidad de unidades que producen en un periodo, los trabajadores 2 y 4 tienen un mínimo y máximo mayor a los de los demás. Finalmente, el trabajador 2 es el que mayor desviación estándar presenta, por lo que se podría pensar que su producción es un poco menor regular y constante que la de los demás. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{FigurasUV/D2.pdf}
+\end{figure}
+~\\En esta gráfica podemos apreciar como los trabajadores 2 y 4 son los que mayor cantidad de unidades producen en un periodo, por otra parte el trabajador 3 se queda muy por debajo del resto, el 1 y el 5 tienen un comportamiento similar.
+
+\item[d.]
+~\\Se plantea el siguiente modelo:
+\begin{center}
+$y_{ij}=\mu+\tau_i+\varepsilon_{ij}$ \;\;\; $i=1,...,5$ \;\;\; $j=1,...,5$
+\end{center}
+~\\El cuál se construye bajo los siguientes supuestos:
+\begin{center}
+$\varepsilon_{ij}\approx N(0,\sigma^2),\;\; E[\varepsilon_{ij}]=0 \;\;\; \forall_{ij}, \;\; V[\varepsilon_{ij}]=\sigma^2, \;\; cov[\varepsilon_{ij},\varepsilon_{i'j'}]=0$
+\end{center}
+~\\Donde:
+~\\$y_{ij}=$Numero de unidades producidas en el j-ésimo periodo por el trabajador i.
+~\\$\mu=$Media general sin tener en cuenta el trabajador.
+~\\$\tau_i=$Efecto del i-ésimo trabajador sobre la cantidad de unidades.
+~\\$\varepsilon_{ij}=$Error aleatorio debido al i-ésimo trabajador en la j-ésima réplica.
+\item[e.]
+~\\Planteamos la siguiente hipótesis:
+\begin{center}
+~\\$H_0:$No hay un efecto del factor de tratamiento(trabajador) sobre la cantidad de unidades.
+~\\$H_1:$Al menos uno de los tratamientos(trabajadores) tiene un efecto significativo sobre la cantidad de unidades.
+\end{center}
+\item[f.]
+~\\Antes de realizar la ANOVA e interpretar los resultados, se comprobarán los supuestos del modelo para saber si las interpretaciones que obtengamos si van a ser correctas.
+~\\Sobre los errrores se tienen los siguientes supuestos:
+$$\varepsilon_{ij}\approx N(0,\sigma^2)  \rightarrow \;\; Normalidad$$
+$$ E[\varepsilon_{ij}]=0 \;\;\; \forall_{ij} \rightarrow \;\; Correcta\; especificacion$$
+$$V[\varepsilon_{ij}]=\sigma^2 \;\;\; \forall_{ij}\rightarrow \;\; Homocedasticidad$$ 
+$$cov[\varepsilon_{ij},\varepsilon_{i'j'}]=0 \;\;\; \forall_{i\neq i'}  \;\; \wedge \;\;\; \forall_{j\neq j'} \rightarrow \;\; Independencia$$
+
+\begin{itemize}
+\item[-]Normalidad: Para probar el supuesto de normalidad, se realizarán dos pruebas gráficas (histograma y QQ-plot) y una prueba estadística(Shapiro Wilk).
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.35]{FigurasUV/N2.pdf}
+\end{figure}
+~\\En las gráficas no se observa un incumplimiento claro de este supuesto, por lo que se acude a la prueba formal.
+
+\item[*]Test Shapiro-Wilk:$$H_0:Los\; datos\; provienen\; de\; una\; distribucion\; normal$$
+$$H_a:Los\; datos\; no\; provienen\; de\; una\; distribucion\; normal$$
+$$W = 0.95503, p-value = 0.2301$$
+
+~\\Como el p-valor=0.2301 es superior a nuestro nivel de significancia $\alpha=0.05$, no se rechaza la hipótesis nula, y concluimos que no hay evidencia estadística suficiente para decir que los datos no provienen de una distribución normal, lo que nos indica que este supuesto de normalidad en los errores no se incumple.
+\item[-]Correcta Especificación:Sabemos que este supuesto siempre se cumple, ya que el método o la construcción del modelo asegura que la esperanza de los residuales sea igual a cero, sin embargo, se realizó una prueba t para comprobarlo.
+
+\item[*]T-test:$$H_0: La\; verdadera\; media\; es\; igual\; a\; 0 $$
+$$H_a:La\; verdadera\; media\; no\; es\; igual\; a\; 0$$
+$$t = -6.5635e-17, df =29, p-value = 1$$
+~\\Como el p-valor=1 es superior a nuestro nivel de significancia $\alpha=0.05$, no se rechaza la hipótesis nula, y se verifica lo dicho anteriormente. 
+
+
+\item[-]Homocedasticidad:Para analizar la homocedasticidad se realizó una prueba gráfica(valores ajustados vs residuos) y una prueba estadísticas(Test de Barlett)
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.35]{FigurasUV/H2.pdf}
+\end{figure}
+~\\Al igual que en el punto 1, las varianzas entre los residuos de cada factor son muy parecidas. Claramente se ve que se cumple el supuesto de homocedasticidad, sin embargo se realiza la prueba formal, la cual se espera que tenga un p valor bastante alto, por la evidencia que se tiene.
+
+\item[*]Prueba de Barlett:$$H_0:Las\;varianzas\;de\;todos\;los\;grupos\;son\;iguales$$
+$$H_a:Al\;menos\;una\;de las\; varianzas\;es\;diferente$$
+$$Bartlett's \; K-squared = 1.2939, df = 4, p-value = 0.8624$$
+
+~\\Como el p-valor=0.8624 es superior a nuestro nivel de significancia $\alpha=0.05$, no se rechaza la hipótesis nula, y concluimos que no hay evidencia estadística suficiente para decir que al menos entre dos grupos la varianza es diferente, lo que nos indica que este supuesto de homocedasticidad en los errores no se incumple.
+
+
+\item[-]Independencia:Para probar el supuesto de independencia en los errores, no se debe realizar un correlograma o una prueba sobre la autocorrelación(prueba de Durbin-Watson) ya que estas dependen del orden en el cuál se obtuvieron los datos, y esa información no se tiene, por lo tanto, solo se realizará una prueba de rachas.
+
+\item[*]Test de rachas: $$H_0:La \; muestra\; es\; aleatoria\; (las \; observaciones \;son \; independientes)$$
+$$H_a:La \; muestra\; no \;es\; aleatoria\; (las \; observaciones \; no\;son \; independientes)$$
+$$Standard \; Normal = 1.4864, p-value =0.1372$$
+~\\Como el p valor=0.1372 es mayor que nuestro nivel de significancia $\alpha=0.05$, no rechazamos la hipótesis nula y concluimos que no hay evidencia estadística suficiente para decir que los residuales no están distribuidos de manera aleatoria, en otras palabras, no podemos decir que no son independientes. Teniendo en cuenta esto, podemos decir que este supuesto de independencia en los errores parece no incumplirse.
+\end{itemize}
+~\\Ya que según las pruebas aplicadas, ninguno de los supuestos se incumple, procedemos a realizar e interpretar la ANOVA:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ &Df&  Sum Sq& Mean Sq &F value & Pr(>F)\\   
+\hline 
+Trabajador      &   4& 517.5& 129.38&   9.689& 7.11e-05***\\ 
+Residuals &  25&333.8& 13.35&  &  \\        
+\hline 
+\end{tabular} 
+\end{center} 
+~\\Podemos ver que el p valor=7.11e-05 es muy inferior a nuestro nivel de significancia $\alpha=0.05$, por lo cual se rechaza $H_0$ planteada en el item e, y concluimos que al menos uno de los tratamientos(trabajador) tiene un efecto significativo sobre la cantidad de unidades producidas.
+
+\item[g.]Se realizará la prueba postanova de Fisher, ya que queremos maximizar la probabilidad de encontrar diferencias significativas, y ésta, al ser no conservadora, tiende a rechazar más hipótesis nulas.Los resultados resumidos para esta prueba son:
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+     &  C/unidades& groups\\
+\hline
+Trabajador 3& 41.7&      a\\
+Trabajador 1& 46.2&      ab\\
+Trabajador 5& 50.2&     bc\\
+Trabajador 4& 51.8&     bc\\
+Trabajador 2& 53.0&      c\\
+\hline
+\end{tabular}
+\end{center}
+~\\Los tratamientos con la misma letra no son significativamente diferentes. Es decir, los Trabajadores 2 4 y 5 no son significativamente diferentes, siendo estos, los que más unidades producen por periodo. El trabajador 1  no es significativamente diferentes a los trabajadores 5 y 4, sin embargo, tampoco es diferente al trabajador 3, esto se podría interpretar como que el trabajador 1 produce una cantidad de unidades promedio, lo cual se observa en la gráfica del item c. El trabajador 2 es diferente a los trabajadores 3 y 1 ya que produce muy por arriba de estos, y es estadísticamente igual a los lotes 5 y 4. 
+
+\item[h.]Como conclusiones en este item 2 podemos decir que así los trabajadores tengan las mismas habilidades hay unos que logran producir mas que otros, así pues la hipótesis del investigador de que existen diferencias significativas entre las cantidades producidas por los diferentes trabajadores parece cumplirse, siendo ademas el trabajador 2 el que mas unidades en promedio logra producir y el trabajador 3 el menos productivo de todos,La prueba post-anova detecto que no hay mucha diferencia entre los trabajadores 2,4 y 5 por lo que se podría decir en principio que estos son igual de productivos, tampoco hay diferencias entre los trabajadores 1,5 y 4 esto indica que el trabajador 1 también es productivo pero se queda por debajo de sus colegas, sin embargo el trabajador 3 es el que menos cantidad de unidades produce por periodo.
+
+\item[i.]Cuando no se cumple el supuesto homogeneidad de varianza utilizamos el modelo de minimos cuadrados generalizados para ver si existen diferencias entre los rabajadores en cuanto a la cantidad de unidades que produc cada uno . Los resultados son:
+\item[*]ANOVA:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ &Df&   F value & p-value\\   
+\hline 
+Intercept      &   1&  5774.358&<.0001\\ 
+Trabajador &  4& 9.873&1e-04    \\        
+\hline 
+\end{tabular} 
+\end{center} 
+~\\Podemos ver que la ANOVA por el método de mínimos cuadrados generalizados coincide al encontrar diferencias significativas entre los trabajadores, por lo que es posible concluir que existen trabajadores con iguales habilidades que logran producir mas y otros menos cantidades de unidades por periodo.
+
+~\\Para comparar por pares, se realizó la prueba de comparación la cual arrojó los siguientes resultados:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+trabajador & lsmean  & SE &df& lower.CL& upper.CL& group\\
+\hline
+ 3       &     41.7& 1.49& 25&     38.6&     44.7&  a\\    
+ 1       &     46.2& 1.49& 25&     43.1&     49.2&  ab \\  
+ 5       &     50.2& 1.49& 25&     47.1&     53.2&   bc \\ 
+ 4       &     51.8& 1.49& 25&     48.8&     54.9&   bc \\ 
+ 2       &     53.0& 1.49& 25&     49.9&     56.1&    c \\ 
+\hline
+\end{tabular}
+\end{center}
+~\\Podemos ver que coincide totalmente con la prueba postanova de Fisher del item g. Por lo cuál se tienen las mismas interpretaciones.
+
+~\\Para comprar los dos modelos usamos:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Modelo &Df&   AIC &BIC&logLik\\   
+\hline 
+Homogéneo   &   6&  169.4196&177.8268&-78.70982\\ 
+Heterogéneo &  10& 175.7427&189.7547&-77.87137    \\        
+\hline 
+\end{tabular} 
+\end{center} 
+~\\Como podemos apreciar el primer modelo es el que mejor ajuste tiene, presenta un menor AIC y BIC, como este supuesto se cumple, era lógico el resultado de que el modelo con homogeneidad en varianza es el mejor en este caso, sin embargo ambos modelos arrojaron que existen diferencias significativas entre los tratamientos (Trabajadores).
+
+\end{itemize}
 
 
 \section{Punto 3}
