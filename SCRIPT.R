@@ -1,20 +1,24 @@
-datos<-read.table("clipboard", header=TRUE, dec=".")
+#Taller 1 Aplicada III(diseño completamente aleatorizado)
+#Punto 1:
+Calcio<-c(23.46,23.48,23.56,23.39,23.40,23.59,23.46,23.42,23.49,23.50,23.51,23.64,23.46,
+          23.52,23.49,23.28,23.40,23.37,23.46,23.39,23.29,23.46,23.37,23.32,23.38)
+Lote<-as.factor(c(rep("Lote 1",5),rep("Lote 2",5),rep("Lote 3",5),rep("Lote 4",5),rep("Lote 5",5)))
+datos<-data.frame(Lote=Lote, Calcio=Calcio)
 attach(datos) 
 head(datos)
-
 #Descriptivos
 library(ggplot2)
+p<-ggplot(datos, aes(Lote,Calcio)) + geom_point()
+p + scale_x_discrete(name="Lote",
+                     labels=c("Lote 1","Lote 2","Lote 3","Lote 4","Lote 5")) + labs(y="Calcio")
 
-p<-ggplot(datos, aes(Nutriente, Altura)) + geom_point()
-p + scale_x_discrete(name="Nutriente",
-                     labels=c("Sin","N","NP","NPK","NK")) + labs(y="Altura (cm)")
 #Incluye la media en el gráfico
-p + scale_x_discrete(name="Nutriente",
-                     labels=c("Sin","N","NP","NPK","NK")) + labs(y="Altura (cm)") +
+x11()
+p + scale_x_discrete(name="Lote",
+                     labels=c("Lote 1","Lote 2","Lote 3","Lote 4","Lote 5")) + labs(y="Calcio") +
   stat_summary(fun.y=mean, colour="red", geom="point", shape=19, size=2)
-
 #Construimos el modelo y obtenemos la ANOVA:
-mod<-aov(Altura~Nutriente, data=datos)
+mod<-aov(Calcio~Lote, data=datos)
 summary(mod)
 #Si no se cumplen los supuestos, no sirve interpretar los resultados de la ANOVA
 
@@ -24,11 +28,12 @@ resid<-residuals(mod)
 
 #Normalidad:
 #Pruebas gráficas:
+library(car)
+x11()
+par(mfrow=c(1,2))
 hist(resid, freq=FALSE)
 curve(dnorm(x,mean(resid), sd(resid)), xlim=c(-4,6), add=TRUE, col=2)
-
-library(car)
-qqPlot(resid, pch=20)
+qqPlot(resid, pch=20,main="QQ-Plot de los residuos")
 
 #Prueba formal
 #Shapiro para muestras menores a 30, Anderson- Darling para muestras mayores a 30
@@ -43,28 +48,43 @@ ad.test(resid)
 t.test(resid, mu = 0, alternative = c("two.sided"))
 
 #Homogeneidad de Varianzas
+x11()
+plot(mod$fitted.values, rstandard(mod), main="Valores ajustados vs Residuos",xlab = "Valores Ajustados",ylab = "Residuos Estandarizados")
+abline(h=0, col="red") ## traza una línea horizontal (h) por el Y=0
 #Bajo normalidad utilizar Barlett
-bartlett.test(resid~Nutriente, data=datos) 
+bartlett.test(resid~Lote, data=datos) 
 
-#Bajo no normalidad utilizar la prueba de levene
-library(car)
-leveneTest(resid~Nutriente, data=datos) 
+#Independencia en los errores
+#Prueba de rachas: H0:Los residuales se distribuyen de manera aleatoria
+library("tseries")
+residualesfactor<-c()
+for (i in 1:length(residuals(mod))) {
+  if (residuals(mod)[i]>0){
+    residualesfactor[i]=1
+  }
+  if (residuals(mod)[i]<0){
+    residualesfactor[i]=-1
+  }
+}
+runs.test(factor(residualesfactor))
+
+
 
 #Pruebas de Comparaciones Múltiple (Pruebas Postanova)
 library(agricolae)
 #Prueba de Fisher (no consevardor, da prioridad al error tipo II, tiende a rechazar la hipótesis nula)
 #Alpha individual para cada comparación.
-LSD.test(mod,"Nutriente", alpha = 0.05, console=TRUE, group=FALSE)
+LSD.test(mod,"Lote", alpha = 0.05, console=TRUE, group=FALSE)
 
 #P(rechazar al menos una comparación)=1-P(aceptar todas)
 #                                    =1-(1-0.05)^10=0.4
 
-LSD.test(mod,"Nutriente", alpha = 0.05, console=TRUE, group=TRUE)
+LSD.test(mod,"Lote", alpha = 0.05, console=TRUE, group=TRUE)
 
 #Prueba de Tukey (consevardor, da prioridad al error tipo I, tiene a no rechazar H0)
 #Alpha individual para cada comparación.
-HSD.test(mod,"Nutriente", alpha=0.05, console=TRUE, group=FALSE)
-HSD.test(mod,"Nutriente", alpha=0.05, console=TRUE, group=TRUE)
+HSD.test(mod,"Lote", alpha=0.05, console=TRUE, group=FALSE)
+HSD.test(mod,"Lote", alpha=0.05, console=TRUE, group=TRUE)
 
 #CÓDIGO ALTERNO:
 library(lsmeans)
@@ -84,14 +104,14 @@ SNK.test(mod,"Nutriente", group=TRUE, console=TRUE, alpha=0.05)
 
 #CUANDO NO SE CUMPLE EL SUPUESTO DE NORMALIDAD:
 #Prueba No Paramétrica de Kruskal-Wallis(no importa el supuesto de normalidad, pero debe cumplirse el supuesto de homogeneidad de varianzas)
-kruskal.test(Altura~Nutriente, data=datos)
+kruskal.test(Calcio~Lote, data=datos)
 
 #Prueba de comparación múltiple cuando todos los valores de la variable respuesta son diferentes (no hay empates) .
 library(PMCMR)
-posthoc.kruskal.nemenyi.test(x=datos$Altura, g=datos$Nutriente, dist="Tukey")
+posthoc.kruskal.nemenyi.test(x=datos$Calcio, g=datos$Lote, dist="Tukey")
 
 #Prueba de comparación múltiple cuando algunos valores de la variable respuesta son iguales (hay empates).
-posthoc.kruskal.nemenyi.test(x=datos$Altura, g=datos$Nutriente, dist="Chisquare")
+posthoc.kruskal.nemenyi.test(x=datos$Calcio, g=datos$Lote, dist="Chisquare")
 
 #Prueba alternativa Paramétrica cuando no hay homogeneidad de varianzas
 #Estimación mediante Mínimos Cuadrados Generalizados (asume normalidad).
